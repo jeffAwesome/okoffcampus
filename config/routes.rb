@@ -3,6 +3,7 @@ Okoffcampus::Application.routes.draw do
   devise_for :landlords
   root 'campuses#index'
   resources :campuses
+  resources :properties
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

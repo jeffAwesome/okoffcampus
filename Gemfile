@@ -15,6 +15,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'geocoder'
 gem 'paperclip', '~> 3.5.1'
+gem 'aws-sdk'
 gem 'devise'
 gem 'sass-rails', '~> 4.0.0' # CSS3 extension (mixins, variables, nesting, etc)
 gem 'simple_form', '~> 3.0.0.rc' # Simplified DSL for forms'''
@@ -44,6 +45,7 @@ group :test, :development do
 end
 
 group :test do
+  gem 'factory_girl_rails'
   gem 'poltergeist' # Uses phantomjs to headlessly test your views
   gem 'simplecov', require: false # Test coverage reporting
   gem 'stripe-ruby-mock' # Mock the stripe library

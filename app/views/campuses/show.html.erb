@@ -30,5 +30,17 @@
   <%= @campus.description %>
 </p>
 
+<h3>Properties Near <%=@campus.name %></h3>
+<ul>
+<% @properties.each do |prop|  %>
+  <li>
+    <%= link_to prop.Title, property_path(prop.id) %>
+  </li>
+<% end %>
+</ul>
+
+
+
+
 <%= link_to 'Edit', edit_campus_path(@campus) %> |
 <%= link_to 'Back', campuses_path %>

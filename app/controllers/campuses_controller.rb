@@ -10,6 +10,7 @@ class CampusesController < ApplicationController
   # GET /campuses/1
   # GET /campuses/1.json
   def show
+    @properties = Property.near(@campus.address)
   end
 
   # GET /campuses/new
