@@ -1,25 +1,23 @@
 require 'spec_helper'
+include Capybara::DSL
+
+# This will guess the User class
+FactoryGirl.define do
+  factory :campus do |c|
+    c.name "East Central University"
+    c.address  "1100 E 14th St, Ada, OK 74820"
+    c.description "This is a great place"
+  end
+end
 
 describe "campuses/show" do
-  before(:each) do
-    @campus = assign(:campus, stub_model(Campus,
-      :name => "Name",
-      :address => "MyText",
-      :latitude => 1.5,
-      :longitude => 1.5,
-      :photo => "",
-      :description => "MyText"
-    ))
+   @campus = FactoryGirl.create(:campus)
+
+  it "renders attributes on page" do
+    visit '/campuses/1'
+    expect(page).to have_content('East Central University')
+    expect(page).to have_content('1100 E 14th St, Ada, OK 74820')
+    expect(page).to have_content('This is a great place')
   end
 
-  it "renders attributes in <p>" do
-    render
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/Name/)
-    rendered.should match(/MyText/)
-    rendered.should match(/1.5/)
-    rendered.should match(/1.5/)
-    rendered.should match(//)
-    rendered.should match(/MyText/)
-  end
 end

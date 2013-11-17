@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131116042028) do
+ActiveRecord::Schema.define(version: 20131117055453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,9 +45,28 @@ ActiveRecord::Schema.define(version: 20131116042028) do
     t.datetime "updated_at"
     t.string   "company_name"
     t.string   "phone_number"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "landlords", ["email"], name: "index_landlords_on_email", unique: true, using: :btree
   add_index "landlords", ["reset_password_token"], name: "index_landlords_on_reset_password_token", unique: true, using: :btree
+
+  create_table "properties", force: true do |t|
+    t.string   "Title"
+    t.text     "Description"
+    t.string   "photos_file_name"
+    t.string   "photos_content_type"
+    t.integer  "photos_file_size"
+    t.datetime "photos_updated_at"
+    t.text     "videos"
+    t.text     "contact_info"
+    t.text     "address"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+  end
 
 end

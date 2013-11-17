@@ -1,0 +1,34 @@
+<h1>Listing campuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Address</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Videos</th>
+      <th>Photos</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @properties.each do |property| %>
+      <tr>
+        <td><%= property.Title %></td>
+        <td><%= property.address %></td>
+        <td><%= property.price %></td>
+        <td><%= property.Description %></td>
+        <td><%= property.videos %></td>
+        <td></td>
+        <td><%= link_to 'Show', property %></td>
+        <td><%= link_to 'Edit', edit_property_path(property) %></td>
+        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Property', new_property_path %>

@@ -32,9 +32,8 @@ describe CampusesController do
 
   describe "GET index" do
     it "assigns all campuses as @campuses" do
-      campus = Campus.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:campuses).should eq([campus])
+      assigns(:campuses).should eq([Campus.find(1)])
     end
   end
 
